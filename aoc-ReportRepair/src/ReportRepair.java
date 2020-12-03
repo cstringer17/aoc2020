@@ -7,7 +7,7 @@ public class ReportRepair {
     public static void main(String[] args) {
         ArrayList<String> fileLines = new ArrayList<String>();
         try {
-            File inputFile = new File("D:\\Programming\\aoc\\aoc-ReportRepair\\input.txt");
+            File inputFile = new File("aoc-ReportRepair/src/input.txt");
             Scanner fileReader = new Scanner(inputFile);
             while  (fileReader.hasNextLine()){
                 fileLines.add(fileReader.nextLine());
