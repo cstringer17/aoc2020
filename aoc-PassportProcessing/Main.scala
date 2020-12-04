@@ -35,7 +35,6 @@ object Main extends App {
   var goodPassports = 0
   //check passports
   for (pass <- passports){
-    println(pass)
     if(pass.contains("byr")
       && pass.contains("iyr")
       && pass.contains("eyr")
@@ -43,8 +42,34 @@ object Main extends App {
       && pass.contains("hcl")
       && pass.contains("ecl")
       && pass.contains("pid")){
-      goodPassports += 1
+
+
+      //Check Birth year
+      if(toInt(pass.get("byr").get) >= 1920 && toInt(pass.get("byr").get) <= 2002 )
+        //Check Issue Year
+        if(toInt(pass.get("iyr").get) >= 2010 && toInt(pass.get("iyr").get) <= 2020 ) {
+          //Check Expiry Year
+          if (toInt(pass.get("eyr").get) >= 2020 && toInt(pass.get("eyr").get) <= 2030) {
+            //Cm or IN
+            val unit = pass.get("hgt").get.takeRight(2);
+            val number = pass.get("hgt").get.dropRight(2)
+            if(unit == "cm" || unit == "in") {
+              println(unit)
+              goodPassports += 1
+            }
+          }
+        }
     }
   }
   println("Valid Passports: " + goodPassports)
+
+
+
+  def toInt(s: String): Int = {
+    try {
+      s.toInt
+    } catch {
+      case e: Exception => 0
+    }
+  }
 }
