@@ -1,4 +1,4 @@
-# :christmas_tree: aoc2020 :christmas_tree:
+# :christmas_tree: Advent of Code 2020 :christmas_tree:
 Task completed for the advent of code
 
 Each day I get given a new coding challenge from the advent of code
